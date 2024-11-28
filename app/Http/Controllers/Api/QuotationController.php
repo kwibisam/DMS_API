@@ -46,18 +46,32 @@ class QuotationController extends Controller
 
     }
 
-    public function show(){
+    public function show(Quotation $quotation){
 
-        return response()-> json(['message'=> 'This is a quotation'], 200); 
+        return new QuotationResource($quotation);
     }
 
-    public function update(){
+    public function update(Request $request, Quotation $quotation){
 
-        return response()-> json(['message'=> 'The quotation has been updated'], 200);
+        $quotation -> update([
+            'name' => $request -> name,
+            'service' => $request -> service,
+            'price' => $request -> price
+        ]);
+
+   
+
+        return response()->json(['message'=> 'The Quotation was updated', 'data'=> new QuotationResource($quotation)], 200);
+
+        
     }
 
-    public function destroy(){
+    public function destroy(Quotation $quotation){
 
-        return response()-> json(['message'=> 'the quotation has been destroyed'], 200);
+        $quotation -> delete(); 
+
+
+
+        return response()-> json(['message'=> 'the quotation has been deleted'], 200);
     }
 }

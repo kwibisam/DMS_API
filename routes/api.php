@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::apiResource('demo', DemoController::class);
-Route::apiResource('quotation', QuotationController::class ); 
+Route::apiResource('quotations', QuotationController::class ); 
 Route::apiResource('service', ServiceRequestController::class);
 
 Route::get('/user', function (Request $request) {
