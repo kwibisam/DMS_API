@@ -13,10 +13,10 @@ Route::apiResource('services', ServiceController::class);
 
 ROUTE::post('/register',[AuthController::class, 'register']);
 ROUTE::post('/login',[AuthController::class, 'login']);
-ROUTE::post('/logout',[AuthController::class, 'logout']);
+ROUTE::post('/logout',[AuthController::class, 'logout'])->middleware('auth:sanctum');
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
 
 

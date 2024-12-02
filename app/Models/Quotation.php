@@ -11,10 +11,15 @@ class Quotation extends Model
 
     protected $fillable = [
         'ClientName',
-        'Organisation',
-        'ClientEmail',
-        'ClientPhone',
+        // 'Organisation',
+        // 'ClientEmail',
+        // 'ClientPhone',
         'ClientAddress'
     ];
+
+    public function user(){
+
+        return $this-> belongsTo(User::class);
+    }
 }
 

@@ -33,12 +33,12 @@ class QuotationController extends Controller
     public function store (Request $request){
 
      
-    
+        //$quotation = $request->user()->quotations()->create(
         $quotation = Quotation::create([
             'ClientName' => $request -> ClientName,
-            'Organisation' => $request -> Organisation,
-            'ClientPhone' => $request -> ClientPhone,
-            'ClientEmail' => $request -> ClientEmail,
+            // 'Organisation' => $request -> Organisation,
+            // 'ClientPhone' => $request -> ClientPhone,
+            // 'ClientEmail' => $request -> ClientEmail,
             'ClientAddress' => $request -> ClientAddress
         ]);
 
@@ -56,9 +56,11 @@ class QuotationController extends Controller
     public function update(Request $request, Quotation $quotation){
 
         $quotation -> update([
-            'name' => $request -> name,
-            'service' => $request -> service,
-            'price' => $request -> price
+            'ClientName' => $request -> ClientName,
+            // 'Organisation' => $request -> Organisation,
+            // 'ClientPhone' => $request -> ClientPhone,
+            // 'ClientEmail' => $request -> ClientEmail,
+            'ClientAddress' => $request -> ClientAddress
         ]);
 
    

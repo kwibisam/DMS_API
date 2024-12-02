@@ -19,9 +19,9 @@ class QuotationResource extends JsonResource
 
         'id' => $this -> id,
         'ClientName' => $this -> ClientName, 
-        'Organisation' => $this -> Organisation,
-        'ClientPhone' => $this -> ClientPhone,
-        'ClientEmail' => $this -> ClientEmail,
+        // 'Organisation' => $this -> Organisation,
+        // 'ClientPhone' => $this -> ClientPhone,
+        // 'ClientEmail' => $this -> ClientEmail,
         'ClientAddress' => $this -> ClientAddress
 
        ];
