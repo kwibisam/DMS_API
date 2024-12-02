@@ -10,8 +10,11 @@ class Quotation extends Model
     protected $table = 'quotations'; 
 
     protected $fillable = [
-        'name',
-        'service',
-        'price'
+        'ClientName',
+        'Organisation',
+        'ClientEmail',
+        'ClientPhone',
+        'ClientAddress'
     ];
 }
+

@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class QuotationResource extends JsonResource
+class ServiceResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,14 +15,13 @@ class QuotationResource extends JsonResource
     public function toArray(Request $request): array
     {
        // return parent::toArray($request);
+
        return [
 
+       
         'id' => $this -> id,
-        'ClientName' => $this -> ClientName, 
-        'Organisation' => $this -> Organisation,
-        'ClientPhone' => $this -> ClientPhone,
-        'ClientEmail' => $this -> ClientEmail,
-        'ClientAddress' => $this -> ClientAddress
+        'ServiceName' => $this -> ServiceName, 
+        'ServiceFamily' => $this -> ServiceFamily,
 
        ];
     }

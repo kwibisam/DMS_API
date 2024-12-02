@@ -35,9 +35,11 @@ class QuotationController extends Controller
      
     
         $quotation = Quotation::create([
-            'name' => $request -> name,
-            'service' => $request -> service,
-            'price' => $request -> price
+            'ClientName' => $request -> ClientName,
+            'Organisation' => $request -> Organisation,
+            'ClientPhone' => $request -> ClientPhone,
+            'ClientEmail' => $request -> ClientEmail,
+            'ClientAddress' => $request -> ClientAddress
         ]);
 
    

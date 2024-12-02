@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quotations', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('ClientName');
-            $table->string('Organisation');
-            $table-> string('ClientEmail');
-            $table-> string('ClientPhone');
-            $table-> text('ClientAddress');
+            $table->string('ServiceName');
+            $table->string('ServiceFamily');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quotations');
+        Schema::dropIfExists('services');
     }
 };
