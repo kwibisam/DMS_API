@@ -47,8 +47,10 @@ class User extends Authenticatable
         ];
     }
 
-    public function quotations(){
 
-        return $this-> hasMany(Quotation::class);
+    public function document()
+    {
+        return $this->hasMany(Document::class);
     }
+    
 }
