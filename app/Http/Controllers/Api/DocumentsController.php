@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\DocumentResource;
 use App\Models\Document;
 use App\Models\User;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -29,18 +30,21 @@ class DocumentsController extends Controller
         try {
             // Get the authenticated user
             $user = $request->user();
-
             if (!$request->hasFile('file')) {
                 return response()->json(['error' => 'No file uploaded'], 400);
             }
 
             $filePath = $request->file('file')->store('documents', 'public');
+
+            $tags = Tag::whereIn('id', [$request->tags])->get();
+
             $document = $user->document()->create([
                 'title' => $request->title,
                 'content' => $request->content,
                 'path' => $filePath,
             ]);
 
+            $document->tags()->attach($tags);
             return response()->json(['data: ' => $document],201);
             // return response()->json(['data' => new DocumentResource($document)], 201);
         } catch (\Exception $e) {
