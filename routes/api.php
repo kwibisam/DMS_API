@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ExampleController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\DocumentsController;
 use App\Http\Controllers\Api\TagsController;
@@ -21,6 +22,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/users', [AuthController::class, 'index'])->middleware('auth:sanctum');
 
+Route::apiResource('example', ExampleController::class);
 Route::apiResource('customers', CustomerController::class);
 Route::apiResource('tags', TagsController::class);
 Route::apiResource('demo', DemoController::class);

@@ -22,7 +22,8 @@ class DocumentResource extends JsonResource
             'path' => $this->path,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'tags' => $this->tags->pluck('name'), // Get a list of tag names
+            'tags' => $this->tags->pluck('name'), // Get a list of tag names,
+            'author' => $this->user ? $this->user->name : null, // Add author's name
         ];
     }
 }

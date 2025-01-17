@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
+use App\Events\DemoTest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,8 +15,8 @@ class DemoController extends Controller
 
     }
 
-    public function store(){
-
+    public function store(Request $request){
+        broadcast(new DemoTest());
         return response() -> json(['message' => 'This is a post request'], 200);
 
     }
