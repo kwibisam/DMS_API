@@ -100,7 +100,7 @@ class DocumentsController extends Controller
 {
     try {
         // Log the incoming request data for debugging
-        Log::info("content data: ". $request->content);
+        // Log::info("content data: ". $request->content);
         // Log::info('Received update request:', $request->title);
         
         // Prepare data for updating
@@ -114,8 +114,9 @@ class DocumentsController extends Controller
 
         // Handle content update
         if ($request->filled('content')) {
-            $updateData['content'] = json_decode($request->input('content'), true);
-            // Log::info("content json: ". $updateData['content']);
+            // $updateData['content'] = json_decode($request->input('content'), true);
+            $updateData['content'] = $request->input('content');
+            // Log::info("content: ". $updateData['content']);
             // $updateData['content'] = $request->input('content');
         }
 
